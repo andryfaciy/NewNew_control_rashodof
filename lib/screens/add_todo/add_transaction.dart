@@ -1,9 +1,8 @@
-import 'dart:wasm';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../../models/todo.dart';
 import '../../client/hive_names.dart';
+import '../Wallets/Wallets.dart';
 
 class AddTodo extends StatefulWidget {
   final formKey = GlobalKey<FormState>();
@@ -13,9 +12,9 @@ class AddTodo extends StatefulWidget {
 }
 
 class _AddTodoState extends State<AddTodo> {
-  int Summa;
-  String Data;
-  String Cat;
+  int amount;
+  String date;
+  String category;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -31,7 +30,7 @@ class _AddTodoState extends State<AddTodo> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TextFormField(
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.datetime,
                     autofocus: true,
                     initialValue: '',
                     decoration: const InputDecoration(
@@ -39,7 +38,7 @@ class _AddTodoState extends State<AddTodo> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        Summa = int.parse(value);
+                        date = value;
                       });
                     },
                     validator: (val) {
@@ -55,7 +54,7 @@ class _AddTodoState extends State<AddTodo> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        Cat = value;
+                        category = value;
                       });
                     },
                     validator: (val) {
@@ -73,7 +72,7 @@ class _AddTodoState extends State<AddTodo> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        Data = value;
+                        amount = int.parse(value);
                       });
                     },
                     validator: (val) {
@@ -106,7 +105,8 @@ class _AddTodoState extends State<AddTodo> {
 
   void _onFormSubmit() {
     Box<Todo> contactsBox = Hive.box<Todo>(HiveBoxes.todo);
-    contactsBox.add(Todo(Summa: Summa, Data: Data, Cat: Cat));
+    contactsBox.add(Todo(amount: amount, date: date, category: category));
+    WalletsPage.walletAmount += amount;
     Navigator.of(context).pop();
   }
 }

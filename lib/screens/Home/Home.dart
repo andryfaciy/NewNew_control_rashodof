@@ -58,11 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   res.delete();
                 },
                 child: ListTile(
-                    //title: Text("$res.Summa"),
-                    subtitle: Text(res.Cat +
-                        '                                                                       ' +
-                        res.Data +
-                        ' ₽'),
+                    title: Text(res.date + "\n" + res.category),
+                    subtitle: Text(
+                      res.amount.toString() + ' ₽',
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        color: res.amount >= 0 ? Colors.green : Colors.red,
+                      ),
+                    ),
                     leading: res.complete
                         ? Icon(Icons.check_box)
                         : Icon(Icons.check_box_outline_blank),

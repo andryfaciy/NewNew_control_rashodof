@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
 import '../Newswallet/Newswallet.dart';
 
 class WalletsPage extends StatelessWidget {
+  static int walletAmount = 100000;
   //Экран кошельков тоже самое и что и с шаблонами надо делать пункты как на главном экране
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class WalletsPage extends StatelessWidget {
                       ),
                       Container(
                           padding: EdgeInsets.fromLTRB(100, 5, 0, 0),
-                          child: Text("65023 Р",
+                          child: Text(walletAmount.toString() + " Р",
                               style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.blue,

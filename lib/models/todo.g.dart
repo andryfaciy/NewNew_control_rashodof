@@ -1,10 +1,4 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
-
 part of 'todo.dart';
-
-// **************************************************************************
-// TypeAdapterGenerator
-// **************************************************************************
 
 class TodoAdapter extends TypeAdapter<Todo> {
   @override
@@ -12,15 +6,15 @@ class TodoAdapter extends TypeAdapter<Todo> {
 
   @override
   Todo read(BinaryReader reader) {
-    var numOfFields = reader.readByte();
+    var numOfFields = reader.readByte() + 1;
     var fields = <int, dynamic>{
       for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Todo(
       complete: fields[1] as bool,
-      Data: fields[2] as String,
-      Summa: fields[3] as int,
-      Cat: fields[4] as String,
+      date: fields[2] as String,
+      amount: fields[3] as int,
+      category: fields[4] as String,
     )..id = fields[0] as String;
   }
 
@@ -33,10 +27,10 @@ class TodoAdapter extends TypeAdapter<Todo> {
       ..writeByte(1)
       ..write(obj.complete)
       ..writeByte(2)
-      ..write(obj.Data)
+      ..write(obj.date)
       ..writeByte(3)
-      ..write(obj.Summa)
+      ..write(obj.amount)
       ..writeByte(4)
-      ..write(obj.Cat);
+      ..write(obj.category);
   }
 }
