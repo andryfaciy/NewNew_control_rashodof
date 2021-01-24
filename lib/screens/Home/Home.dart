@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../client/hive_names.dart';
-import '../main.dart';
-import '../models/todo.dart';
-import 'Settings.dart';
-import 'Templates.dart';
-import 'Wallets.dart';
-import 'add_todo/add_transaction.dart';
+import '../../client/hive_names.dart';
+import '../../main.dart';
+import '../../models/todo.dart';
+import '../Settings/Settings.dart';
+import '../Templates/Templates.dart';
+import '../Wallets/Wallets.dart';
+import '../add_todo/add_transaction.dart';
+import 'Components/SwipeButton.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -32,38 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
             new AppBar(
               title: new Text('Меню'),
             ),
-            ButtonTheme(
-              height: 60,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => TemplatesPage()));
-                },
-                child: Text('Шаблоны', style: TextStyle(fontSize: 15)),
-                color: Colors.white,
-              ),
-            ),
-            ButtonTheme(
-              height: 60,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SettingsPage()));
-                },
-                child: Text('Настройки', style: TextStyle(fontSize: 15)),
-                color: Colors.white,
-              ),
-            ),
-            ButtonTheme(
-                height: 60,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => WalletsPage()));
-                  },
-                  child: Text('Кошельки', style: TextStyle(fontSize: 15)),
-                  color: Colors.white,
-                ))
+            SwipeButton(text: 'Настройки', route: SettingsPage()),
+            SwipeButton(text: 'Шаблоны', route: TemplatesPage()),
+            SwipeButton(text: 'Кошельки', route: WalletsPage()),
           ],
         ),
       ),

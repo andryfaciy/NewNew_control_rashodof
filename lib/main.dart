@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todo_hive_example/screens/Home.dart';
+import 'package:todo_hive_example/screens/Home/Home.dart';
 import 'package:todo_hive_example/screens/add_todo/add_transaction.dart';
 import 'models/todo.dart';
 import 'client/hive_names.dart';

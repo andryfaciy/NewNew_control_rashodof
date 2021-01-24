@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import 'Newshablone.dart';
+import '../../main.dart';
+import '../Newshablone/Newshablone.dart';
 
 class TemplatesPage extends StatelessWidget {
   //Экран Шаблоны

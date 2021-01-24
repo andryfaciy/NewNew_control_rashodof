@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
-import 'Newswallet.dart';
+import '../../main.dart';
+import '../Newswallet/Newswallet.dart';
 
 class WalletsPage extends StatelessWidget {
   //Экран кошельков тоже самое и что и с шаблонами надо делать пункты как на главном экране
